@@ -746,11 +746,11 @@ class FasterRCNN(nn.Module):
         self.model_config = model_config
         vgg16 = torchvision.models.vgg16(pretrained=True)
         self.backbone = vgg16.features[:-1]
-        self.rpn = RegionProposalNetwork(512,
+        self.rpn = RegionProposalNetwork(model_config['backbone_out_channels'],
                                          scales=model_config['scales'],
                                          aspect_ratios=model_config['aspect_ratios'],
                                          model_config=model_config)
-        self.roi_head = ROIHead(model_config, num_classes, in_channels=512)
+        self.roi_head = ROIHead(model_config, num_classes, in_channels=model_config['backbone_out_channels'])
         for layer in self.backbone[:10]:
             for p in layer.parameters():
                 p.requires_grad = False
