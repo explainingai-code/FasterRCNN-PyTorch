@@ -82,7 +82,7 @@ This repo has some differences from actual Faster RCNN paper.
 
 ## For modifications 
 * To change the fc dimension , change `fc_inner_dim` in config
-* To use a different backbone
+* To use a different backbone, make the change [here](https://github.com/explainingai-code/FasterRCNN-PyTorch/blob/main/model/faster_rcnn.py#L748) and also change `backbone_out_channels` in config
 * To use hard negative mining change `roi_low_bg_iou` to say 0.1(this will ignore proposals with < 0.1 iou)
 * To use gradient accumulation change `acc_steps` in config to > 1
 
