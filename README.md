@@ -10,13 +10,26 @@ The repo is meant to train faster r-cnn on voc dataset. Specifically I trained o
 
 ## Faster R-CNN Explanation Video
 
+<a href="https://youtu.be/itjQT-gFQBY">
+   <img alt="Faster R-CNN Explanation" src="https://github.com/explainingai-code/FasterRCNN-PyTorch/assets/144267687/4da49766-d216-4c5a-b619-44ab269e0a7b"
+   width="300">
+</a>
 
 ## Faster R-CNN Implementation Video
 
+<a href="https://youtu.be/Qq1yfWDdj5Y">
+   <img alt="Faster R-CNN Implementation" src="https://github.com/explainingai-code/FasterRCNN-PyTorch/assets/144267687/fc24c80f-4ddf-45e7-ad1d-9989bc978f10"
+   width="300">
+</a>
 
-
-## Sample Output by training Faster R-CNN on VOC 2007 dataset
-
+## Sample Output by training Faster R-CNN on VOC 2007 dataset 
+Ground Truth(Left) | Prediction(right)
+</br>
+<img src="https://github.com/explainingai-code/FasterRCNN-PyTorch/assets/144267687/d9e8bfbb-d6c3-4cb7-955f-e401ebb9045c" width="300">
+<img src="https://github.com/explainingai-code/FasterRCNN-PyTorch/assets/144267687/2fe01174-dd0d-4fee-afbd-45b5b45307b3" width="300">
+</br>
+<img src="https://github.com/explainingai-code/FasterRCNN-PyTorch/assets/144267687/39f095d3-8f50-4cd7-89cb-cee655cfa76d" width="300">
+<img src="https://github.com/explainingai-code/FasterRCNN-PyTorch/assets/144267687/2860bb29-3691-419a-b436-0d67f08d82e0" width="300">
 
 ## Data preparation
 For setting up the VOC 2007 dataset:
@@ -100,5 +113,21 @@ During inference the following output will be saved
 
 ## Citations
 ```
-
+@article{DBLP:journals/corr/RenHG015,
+  author       = {Shaoqing Ren and
+                  Kaiming He and
+                  Ross B. Girshick and
+                  Jian Sun},
+  title        = {Faster {R-CNN:} Towards Real-Time Object Detection with Region Proposal
+                  Networks},
+  journal      = {CoRR},
+  volume       = {abs/1506.01497},
+  year         = {2015},
+  url          = {http://arxiv.org/abs/1506.01497},
+  eprinttype    = {arXiv},
+  eprint       = {1506.01497},
+  timestamp    = {Mon, 13 Aug 2018 16:46:02 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/RenHG015.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
 ```
