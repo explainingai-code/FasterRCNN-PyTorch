@@ -22,6 +22,13 @@ The repo is meant to train faster r-cnn on voc dataset. Specifically I trained o
    width="300">
 </a>
 
+## Faster R-CNN PyTorch Code Walkthrough Video
+<a href="https://www.youtube.com/watch?v=YA7BqiUTCwM">
+   <img alt="Faster R-CNN Implementation" src="https://github.com/explainingai-code/FasterRCNN-PyTorch/assets/144267687/d6d9a889-abbb-42c3-92df-635ff4457bb4"
+   width="300">
+</a>
+
+
 ## Sample Output by training Faster R-CNN on VOC 2007 dataset 
 Ground Truth(Left) | Prediction(right)
 </br>
@@ -47,6 +54,8 @@ For setting up the VOC 2007 dataset:
         -> tools
             -> train.py
             -> infer.py
+            -> train_torchvision_frcnn.py
+            -> infer_torchvision_frcnn.py
         -> config
             -> voc.yaml
         -> model
@@ -91,10 +100,26 @@ This repo has some differences from actual Faster RCNN paper.
 * ```git clone https://github.com/explainingai-code/FasterRCNN-PyTorch.git```
 * ```cd FasterRCNN-PyTorch```
 * ```pip install -r requirements.txt```
-* For training/inferencee use the below commands passing the desired configuration file as the config argument in case you want to play with it. 
+* For training/inference use the below commands passing the desired configuration file as the config argument . 
 * ```python -m tools.train``` for training Faster R-CNN on voc dataset
 * ```python -m tools.infer --evaluate False --infer_samples True``` for generating inference predictions
 * ```python -m tools.infer --evaluate True --infer_samples False``` for evaluating on test dataset
+
+## Using torchvision FasterRCNN 
+* For training/inference using torchvision faster rcnn codebase, use the below commands passing the desired configuration file as the config argument.
+* ```python -m tools.train_torchvision_frcnn``` for training using torchvision pretrained Faster R-CNN class on voc dataset
+   * This uses the following arguments other than config file
+   * --use_resnet50_fpn
+      * True(default) - Use pretrained torchvision faster rcnn
+      * False - Build your own custom model using torchvision faster rcnn class)
+* ```python -m tools.infer_torchvision_frcnn``` for inference and testing purposes. Pass the desired configuration file as the config argument.
+   * This uses the following arguments other than config file
+   * --use_resnet50_fpn
+      * True(default) - Use pretrained torchvision faster rcnn
+      * False - Build your own custom model using torchvision faster rcnn class)
+      * Should be same value as used during training
+   * --evaluate (Whether to evaluate mAP on test dataset or not, default value is False)
+   * -- infer_samples (Whether to generate predicitons on some sample test images, default value is True)
 
 ## Configuration
 * ```config/voc.yaml``` - Allows you to play with different components of faster r-cnn on voc dataset  
