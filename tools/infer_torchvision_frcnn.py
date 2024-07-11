@@ -348,6 +348,7 @@ if __name__ == '__main__':
     parser.add_argument('--use_resnet50_fpn', dest='use_resnet50_fpn',
                         default=True, type=bool)
     args = parser.parse_args()
+    
     if args.infer_samples:
         infer(args)
     else:
