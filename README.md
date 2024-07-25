@@ -66,9 +66,21 @@ For setting up the VOC 2007 dataset:
 
 ## For training on your own dataset
 
-* Update the path for `im_train_path`, `im_test_path`, `ann_train_path`, `ann_test_path` in config
-* Modify dataset file `dataset/voc.py` to load images and annotations accordingly
-* Dataset class should the following:
+* Copy the voc config and update the [dataset_params](https://github.com/explainingai-code/FasterRCNN-PyTorch/blob/main/config/voc.yaml#L1) and change the [task_name](https://github.com/explainingai-code/FasterRCNN-PyTorch/blob/main/config/voc.yaml#L35) as well as [ckpt_name](https://github.com/explainingai-code/FasterRCNN-PyTorch/blob/main/config/voc.yaml#L41) based on your own dataset.
+* Copy the VOC dataset class and make following changes:
+   * Update the classes list [here](https://github.com/explainingai-code/FasterRCNN-PyTorch/blob/main/dataset/voc.py#L61) (excluding background).
+   * Modify the [load_images_and_anns](https://github.com/explainingai-code/FasterRCNN-PyTorch/blob/main/dataset/voc.py#L13) method to returns a list of im_infos for all images, where each im_info is a dictionary with following keys:
+     ```        
+      im_info : {
+		'filename' : <image path>
+		'detections' : 
+			[
+				'label': <integer class label for this detection>, # assuming the same order as classes list present above, with background as zero index.
+				'bbox' : list of x1,y1,x2,y2 for the bboxes.
+			]
+	    }
+     ```
+* Ensure that `__getitem__` returns the following:
   ```
   im_tensor(C x H x W) , 
   target{
@@ -77,6 +89,9 @@ For setting up the VOC 2007 dataset:
         }
   file_path(just used for debugging)
   ```
+* Change the training script to use your dataset [here](https://github.com/explainingai-code/FasterRCNN-PyTorch/blob/main/tools/train_torchvision_frcnn.py#L41)
+* Then run training with the desired config passed as argument.
+
 
 ## Differences from Faster RCNN paper
 This repo has some differences from actual Faster RCNN paper.
