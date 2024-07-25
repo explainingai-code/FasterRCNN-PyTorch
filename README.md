@@ -66,8 +66,8 @@ For setting up the VOC 2007 dataset:
 
 ## For training on your own dataset
 
-* Copy the voc config and update the [dataset_params](https://github.com/explainingai-code/FasterRCNN-PyTorch/blob/main/config/voc.yaml#L1) and change the [task_name](https://github.com/explainingai-code/FasterRCNN-PyTorch/blob/main/config/voc.yaml#L35) as well as [ckpt_name](https://github.com/explainingai-code/FasterRCNN-PyTorch/blob/main/config/voc.yaml#L41) based on your own dataset.
-* Copy the VOC dataset class and make following changes:
+* Copy the VOC config(`config/voc.yaml`) and update the [dataset_params](https://github.com/explainingai-code/FasterRCNN-PyTorch/blob/main/config/voc.yaml#L1) and change the [task_name](https://github.com/explainingai-code/FasterRCNN-PyTorch/blob/main/config/voc.yaml#L35) as well as [ckpt_name](https://github.com/explainingai-code/FasterRCNN-PyTorch/blob/main/config/voc.yaml#L41) based on your own dataset.
+* Copy the VOC dataset(`dataset/voc.py`) class and make following changes:
    * Update the classes list [here](https://github.com/explainingai-code/FasterRCNN-PyTorch/blob/main/dataset/voc.py#L61) (excluding background).
    * Modify the [load_images_and_anns](https://github.com/explainingai-code/FasterRCNN-PyTorch/blob/main/dataset/voc.py#L13) method to returns a list of im_infos for all images, where each im_info is a dictionary with following keys:
      ```        
