@@ -46,6 +46,9 @@ def train(args):
                                    num_classes=dataset_config['num_classes'])
     faster_rcnn_model.train()
     faster_rcnn_model.to(device)
+
+    if not os.path.exists(train_config['task_name']):
+        os.mkdir(train_config['task_name'])
     optimizer = torch.optim.SGD(lr=train_config['lr'],
                                 params=filter(lambda p: p.requires_grad,
                                               faster_rcnn_model.parameters()),
