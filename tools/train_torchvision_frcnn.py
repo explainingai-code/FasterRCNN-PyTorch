@@ -111,7 +111,6 @@ def train(args):
             loss.backward()
             optimizer.step()
             step_count +=1
-            break
         print('Finished epoch {}'.format(i))
         if args.use_resnet50_fpn:
             torch.save(faster_rcnn_model.state_dict(), os.path.join(train_config['task_name'],
